@@ -26,11 +26,13 @@
 
     <dependencies>
 
+        <!-- WebFlux para API reactiva -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
 
+        <!-- R2DBC para PostgreSQL -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-r2dbc</artifactId>
@@ -42,6 +44,7 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Lombok para reducir boilerplate -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -49,27 +52,28 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Dependencia para pruebas reactivas -->
+        <!-- Pruebas reactivas -->
         <dependency>
             <groupId>io.projectreactor</groupId>
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!-- Spring Boot DevTools (para desarrollo y recarga automática) -->
+        <!-- DevTools para recarga automática -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Dependencia para JUnit 5 -->
+        <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.9.3</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
@@ -77,28 +81,35 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Dependencia para pruebas con Spring Boot -->
+        <!-- Pruebas con Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+        <!-- Seguridad JWT (Firebase, OAuth2, etc.) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
 
-        <!-- Seguridad JWT (Firebase) -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-resource-server</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-oauth2-jose</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-resource-server</artifactId>
+        </dependency>
 
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-jose</artifactId>
+        </dependency>
+
+        <!-- ✅ Permite leer variables desde el archivo .env -->
+        <dependency>
+            <groupId>me.paulschwarz</groupId>
+            <artifactId>spring-dotenv</artifactId>
+            <version>3.0.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -124,7 +135,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Plugin Surefire actualizado para compatibilidad con JUnit 5 -->
+            <!-- Plugin Surefire para compatibilidad con JUnit 5 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -149,4 +160,5 @@
             </snapshots>
         </repository>
     </repositories>
+
 </project>

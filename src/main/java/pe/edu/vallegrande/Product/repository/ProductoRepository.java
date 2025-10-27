@@ -1,7 +1,7 @@
 package pe.edu.vallegrande.Product.repository;
 
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
-import pe.edu.vallegrande.Product.ProductoModel;
+import pe.edu.vallegrande.Product.model.ProductoModel;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
