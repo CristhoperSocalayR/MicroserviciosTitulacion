@@ -1,0 +1,11 @@
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/ShedApplication.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/config/AuthContextWebFilter.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/config/CustomAuthenticationToken.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/config/SecurityConfig.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/config/SwaggerConfig.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/dto/HenDTO.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/dto/SupplierDTO.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/model/Shed.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/repository/ShedRepository.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/rest/RestShed.java
+/workspace/ms-sheds/src/main/java/pe/edu/vallegrande/shed/service/ShedService.java

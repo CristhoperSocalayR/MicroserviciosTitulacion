@@ -1,0 +1,12 @@
+pe/edu/vallegrande/shed/dto/SupplierDTO.class
+pe/edu/vallegrande/shed/dto/HenDTO.class
+pe/edu/vallegrande/shed/service/ShedService.class
+pe/edu/vallegrande/shed/repository/ShedRepository.class
+pe/edu/vallegrande/shed/config/AuthContextWebFilter.class
+pe/edu/vallegrande/shed/model/Shed.class
+pe/edu/vallegrande/shed/config/CustomAuthenticationToken.class
+pe/edu/vallegrande/shed/config/SecurityConfig$1.class
+pe/edu/vallegrande/shed/rest/RestShed.class
+pe/edu/vallegrande/shed/config/SwaggerConfig.class
+pe/edu/vallegrande/shed/ShedApplication.class
+pe/edu/vallegrande/shed/config/SecurityConfig.class
