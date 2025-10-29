@@ -1,0 +1,8 @@
+pe/edu/vallegrande/TypeSupplier/config/CustomAuthenticationToken.class
+pe/edu/vallegrande/TypeSupplier/config/SecurityConfig.class
+pe/edu/vallegrande/TypeSupplier/model/TypeSupplier.class
+pe/edu/vallegrande/TypeSupplier/config/SecurityConfig$1.class
+pe/edu/vallegrande/TypeSupplier/service/TypeSupplierService.class
+pe/edu/vallegrande/TypeSupplier/repository/TypeSupplierRepository.class
+pe/edu/vallegrande/TypeSupplier/TypeSupplierApplication.class
+pe/edu/vallegrande/TypeSupplier/rest/RestTypeSupplier.class
