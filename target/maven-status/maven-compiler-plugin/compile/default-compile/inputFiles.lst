@@ -1,0 +1,7 @@
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/UbigeoApplication.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/config/CustomAuthenticationToken.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/config/SecurityConfig.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/model/Ubigeo.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/repository/UbigeoRepository.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/rest/UbigeoRest.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Ubigeo/service/UbigeoService.java

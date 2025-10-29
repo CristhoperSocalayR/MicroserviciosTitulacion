@@ -1,0 +1,8 @@
+pe/edu/vallegrande/Ubigeo/rest/UbigeoRest.class
+pe/edu/vallegrande/Ubigeo/config/CustomAuthenticationToken.class
+pe/edu/vallegrande/Ubigeo/model/Ubigeo.class
+pe/edu/vallegrande/Ubigeo/service/UbigeoService.class
+pe/edu/vallegrande/Ubigeo/UbigeoApplication.class
+pe/edu/vallegrande/Ubigeo/config/SecurityConfig$1.class
+pe/edu/vallegrande/Ubigeo/repository/UbigeoRepository.class
+pe/edu/vallegrande/Ubigeo/config/SecurityConfig.class

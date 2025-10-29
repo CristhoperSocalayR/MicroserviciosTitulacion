@@ -2,6 +2,6 @@ FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-COPY target/shed-0.0.1-SNAPSHOT.jar app.jar
+COPY target/Supplier-0.0.1-SNAPSHOT.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
