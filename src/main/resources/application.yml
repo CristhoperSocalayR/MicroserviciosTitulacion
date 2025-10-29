@@ -1,9 +1,10 @@
-
 server:
   port: 8085
+
 spring:
   application:
     name: SupplierNPH
+
   r2dbc:
     url: ${DB_URL}
     username: ${DB_USER}
