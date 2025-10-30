@@ -1,0 +1,12 @@
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/dto/ErrorResponse.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/model/TypeKardex.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/TypeKardexApplication.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/repository/TypeKardexRepository.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/exception/TypeKardexNotFoundException.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/config/AuthContextWebFilter.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/exception/GlobalExceptionHandler.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/config/CustomAuthenticationToken.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/controller/ControlllerTypeKardex.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/service/TypeKardexService.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/config/SecurityConfig.java
+/workspace/ms-typekardex/src/main/java/edu/pe/vallegrande/TypeKardex/config/SwaggerConfig.java
