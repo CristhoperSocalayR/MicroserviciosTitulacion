@@ -1,0 +1,7 @@
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/repository/ProductoRepository.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/service/ProductoService.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/ProductApplication.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/controller/ProductoRest.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/config/SecurityConfig.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/model/ProductoModel.java
+/workspaces/MicroserviciosTitulacion/src/main/java/pe/edu/vallegrande/Product/config/CustomAuthenticationToken.java

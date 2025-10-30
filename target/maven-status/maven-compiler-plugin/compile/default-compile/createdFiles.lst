@@ -1,0 +1,9 @@
+pe/edu/vallegrande/Product/ProductApplication.class
+pe/edu/vallegrande/Product/config/SecurityConfig$1.class
+pe/edu/vallegrande/Product/repository/ProductoRepository.class
+pe/edu/vallegrande/Product/config/SecurityConfig.class
+pe/edu/vallegrande/Product/config/CustomAuthenticationToken.class
+pe/edu/vallegrande/Product/service/ProductoService.class
+pe/edu/vallegrande/Product/controller/ProductoRest.class
+pe/edu/vallegrande/Product/model/ProductoModel$ProductoModelBuilder.class
+pe/edu/vallegrande/Product/model/ProductoModel.class
