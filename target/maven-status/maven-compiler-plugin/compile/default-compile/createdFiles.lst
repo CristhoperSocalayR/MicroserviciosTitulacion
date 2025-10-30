@@ -1,5 +1,5 @@
-edu/pe/vallegrande/MovementKardex/exception/GlobalExceptionHandler.class
 edu/pe/vallegrande/MovementKardex/exception/MovementKardexException.class
+edu/pe/vallegrande/MovementKardex/exception/GlobalExceptionHandler.class
 edu/pe/vallegrande/MovementKardex/controller/ControllerMovementKardex.class
 edu/pe/vallegrande/MovementKardex/config/AuthContextWebFilter.class
 edu/pe/vallegrande/MovementKardex/repository/MovementKardexRepository.class
