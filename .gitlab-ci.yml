@@ -1,0 +1,58 @@
+stages:
+  - test
+  - sonarqube
+  - owasp
+
+variables:
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end"
+  SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+  GIT_DEPTH: "0"
+
+cache:
+  paths:
+    - .m2/repository
+    - .sonar/cache
+
+🧪 Testeando:
+  stage: test
+  image: maven:3.9.5-eclipse-temurin-17
+  script:
+    - echo "🧪 Testeando..."
+    - mvn $MAVEN_CLI_OPTS clean test
+  artifacts:
+    when: always
+    reports:
+      junit: target/surefire-reports/*.xml
+    paths:
+      - target/surefire-reports/
+
+🔍 Chequeando SonarCloud:
+  stage: sonarqube
+  image: maven:3-openjdk-17
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script:
+    - echo "🔍 Chequeando SonarCloud..."
+    - mvn verify sonar:sonar -Dsonar.projectKey=cristhopersocalay_movimientos -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+  only:
+    - merge_requests
+    - main
+    - develop
+
+🛡️ Observando OWASP:
+  stage: owasp
+  image: owasp/dependency-check:latest
+  script:
+    - echo "🛡️ Observando OWASP..."
+    - dependency-check.sh --project "foods" --scan . --format HTML,JSON --out ./owasp-report
+  artifacts:
+    when: always
+    paths:
+      - owasp-report/
+  only:
+    - merge_requests
+    - main
+    - develop
