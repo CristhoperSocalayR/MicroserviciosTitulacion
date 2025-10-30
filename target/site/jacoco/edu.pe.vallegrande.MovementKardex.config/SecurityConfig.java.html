@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SecurityConfig.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MovementKardex</a> &gt; <a href="index.source.html" class="el_package">edu.pe.vallegrande.MovementKardex.config</a> &gt; <span class="el_source">SecurityConfig.java</span></div><h1>SecurityConfig.java</h1><pre class="source lang-java linenums">package edu.pe.vallegrande.MovementKardex.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder;
+import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
+import org.springframework.security.web.server.SecurityWebFilterChain;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
+import org.springframework.web.server.ServerWebExchange;
+import reactor.core.publisher.Mono;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.cors.CorsConfiguration;
+
+@Configuration
+@EnableWebFluxSecurity
+@EnableReactiveMethodSecurity
+<span class="nc" id="L31">public class SecurityConfig {</span>
+
+    @Value(&quot;${spring.security.oauth2.resourceserver.jwt.jwk-set-uri}&quot;)
+    private String jwkSetUri;
+
+<span class="nc" id="L36">    private static final List&lt;String&gt; STATIC_ALLOWED_ORIGINS = Arrays.asList(</span>
+            &quot;http://localhost:4200&quot;
+    );
+
+<span class="nc" id="L40">    private static final Pattern GITPOD_REGEX = Pattern.compile(</span>
+            &quot;^https://4200-[a-z0-9\\-]+\\.ws-[a-z0-9]+\\.gitpod\\.io$&quot;
+    );
+
+    @Bean
+    public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
+<span class="nc" id="L46">        return http</span>
+<span class="nc" id="L47">                .csrf(ServerHttpSecurity.CsrfSpec::disable)</span>
+<span class="nc" id="L48">                .authorizeExchange(auth -&gt; auth</span>
+<span class="nc" id="L49">                        .pathMatchers(HttpMethod.OPTIONS, &quot;/**&quot;).permitAll()</span>
+<span class="nc" id="L50">                        .pathMatchers(&quot;/swagger-ui.html&quot;, &quot;/v3/api-docs/**&quot;, &quot;/swagger-ui/**&quot;).permitAll()</span>
+<span class="nc" id="L51">                        .pathMatchers(HttpMethod.GET, &quot;/NPH/movement-kardex/**&quot;).hasAnyRole(&quot;USER&quot;, &quot;ADMIN&quot;)</span>
+<span class="nc" id="L52">                        .pathMatchers(HttpMethod.POST, &quot;/NPH/movement-kardex/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
+<span class="nc" id="L53">                        .pathMatchers(HttpMethod.PUT, &quot;/NPH/movement-kardex/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
+<span class="nc" id="L54">                        .pathMatchers(HttpMethod.DELETE, &quot;/NPH/movement-kardex/**&quot;).hasRole(&quot;ADMIN&quot;)</span>
+<span class="nc" id="L55">                        .anyExchange().authenticated()</span>
+                )
+<span class="nc" id="L57">                .oauth2ResourceServer(oauth2 -&gt; oauth2</span>
+<span class="nc" id="L58">                        .jwt(jwt -&gt; jwt</span>
+<span class="nc" id="L59">                                .jwtDecoder(jwtDecoder())</span>
+<span class="nc" id="L60">                                .jwtAuthenticationConverter(this::convertJwt)</span>
+                        )
+                )
+<span class="nc" id="L63">                .cors(cors -&gt; cors</span>
+<span class="nc" id="L64">                        .configurationSource(dynamicCorsConfigurationSource())</span>
+                )
+<span class="nc" id="L66">                .build();</span>
+    }
+
+    @Bean
+    public ReactiveJwtDecoder jwtDecoder() {
+<span class="nc" id="L71">        return NimbusReactiveJwtDecoder.withJwkSetUri(jwkSetUri).build();</span>
+    }
+
+    private Mono&lt;CustomAuthenticationToken&gt; convertJwt(Jwt jwt) {
+<span class="nc" id="L75">        String role = jwt.getClaimAsString(&quot;role&quot;);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">        Collection&lt;GrantedAuthority&gt; authorities = role != null</span>
+<span class="nc" id="L77">                ? List.of(new SimpleGrantedAuthority(&quot;ROLE_&quot; + role.toUpperCase()))</span>
+<span class="nc" id="L78">                : List.of();</span>
+<span class="nc" id="L79">        return Mono.just(new CustomAuthenticationToken(jwt, authorities));</span>
+    }
+
+    private CorsConfigurationSource dynamicCorsConfigurationSource() {
+<span class="nc" id="L83">        return new UrlBasedCorsConfigurationSource() {</span>
+            @Override
+            public CorsConfiguration getCorsConfiguration(ServerWebExchange exchange) {
+<span class="nc" id="L86">                String origin = exchange.getRequest().getHeaders().getOrigin();</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">                if (isAllowedOrigin(origin)) {</span>
+<span class="nc" id="L88">                    CorsConfiguration config = new CorsConfiguration();</span>
+<span class="nc" id="L89">                    config.setAllowedOrigins(List.of(origin));</span>
+<span class="nc" id="L90">                    config.setAllowedMethods(List.of(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;));</span>
+<span class="nc" id="L91">                    config.setAllowedHeaders(List.of(&quot;*&quot;));</span>
+<span class="nc" id="L92">                    config.setAllowCredentials(true);</span>
+<span class="nc" id="L93">                    config.setMaxAge(3600L);</span>
+<span class="nc" id="L94">                    return config;</span>
+                }
+<span class="nc" id="L96">                return null; // Bloquea CORS si el origen no es válido</span>
+            }
+        };
+    }
+
+    private boolean isAllowedOrigin(String origin) {
+<span class="nc bnc" id="L102" title="All 2 branches missed.">        if (origin == null) return false;</span>
+<span class="nc bnc" id="L103" title="All 4 branches missed.">        return STATIC_ALLOWED_ORIGINS.contains(origin) || GITPOD_REGEX.matcher(origin).matches();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

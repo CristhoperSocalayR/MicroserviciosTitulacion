@@ -1,0 +1,11 @@
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/MovementKardexApplication.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/config/AuthContextWebFilter.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/config/CustomAuthenticationToken.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/config/SecurityConfig.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/controller/ControllerMovementKardex.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/exception/ErrorResponse.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/exception/GlobalExceptionHandler.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/exception/MovementKardexException.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/model/MovementKardex.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/repository/MovementKardexRepository.java
+/workspace/ms-movement_kardex/src/main/java/edu/pe/vallegrande/MovementKardex/service/MovementKardexService.java

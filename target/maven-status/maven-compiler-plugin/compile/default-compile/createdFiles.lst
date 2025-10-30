@@ -1,0 +1,12 @@
+edu/pe/vallegrande/MovementKardex/exception/GlobalExceptionHandler.class
+edu/pe/vallegrande/MovementKardex/exception/MovementKardexException.class
+edu/pe/vallegrande/MovementKardex/controller/ControllerMovementKardex.class
+edu/pe/vallegrande/MovementKardex/config/AuthContextWebFilter.class
+edu/pe/vallegrande/MovementKardex/repository/MovementKardexRepository.class
+edu/pe/vallegrande/MovementKardex/config/CustomAuthenticationToken.class
+edu/pe/vallegrande/MovementKardex/config/SecurityConfig.class
+edu/pe/vallegrande/MovementKardex/service/MovementKardexService.class
+edu/pe/vallegrande/MovementKardex/model/MovementKardex.class
+edu/pe/vallegrande/MovementKardex/exception/ErrorResponse.class
+edu/pe/vallegrande/MovementKardex/MovementKardexApplication.class
+edu/pe/vallegrande/MovementKardex/config/SecurityConfig$1.class
